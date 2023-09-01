@@ -1,18 +1,19 @@
 <div class="iti iti--allow-dropdown"
 	[ngClass]="separateDialCodeClass">
 	<div class="iti__flag-container"
-		dropdown
+    ngbDropdown
+    [autoClose]="true"
 		[ngClass]="{'disabled': disabled}"
-		[isDisabled]="disabled">
-		<div class="iti__selected-flag dropdown-toggle"
-			dropdownToggle>
+    [attr.disabled]="disabled ? true : null">
+		<button class="iti__selected-flag dropdown-toggle"
+         ngbDropdownToggle>
 			<div class="iti__flag"
 				[ngClass]="selectedCountry.flagClass || ''"></div>
 			<div *ngIf="separateDialCode"
 				class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
 			<div class="iti__arrow"></div>
-		</div>
-		<div *dropdownMenu
+		</button>
+		<div ngbDropdownMenu
 			class="dropdown-menu country-dropdown">
 			<div class="search-container"
 				*ngIf="searchCountryFlag && searchCountryField">
@@ -27,6 +28,7 @@
 				#countryList>
 				<li class="iti__country iti__preferred"
 					*ngFor="let country of preferredCountriesInDropDown"
+          ngbDropdownItem
 					(click)="onCountrySelect(country, focusable)"
 					[id]="country.htmlId+'-preferred'">
 					<div class="iti__flag-box">
@@ -41,6 +43,7 @@
 				<li class="iti__country iti__standard"
 					*ngFor="let country of allCountries"
 					(click)="onCountrySelect(country, focusable)"
+          ngbDropdownItem
 					[id]="country.htmlId">
 					<div class="iti__flag-box">
 						<div class="iti__flag"

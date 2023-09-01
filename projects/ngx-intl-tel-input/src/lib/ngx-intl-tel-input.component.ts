@@ -14,8 +14,6 @@ import {
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { setTheme } from 'ngx-bootstrap/utils';
-
 import { CountryCode } from './data/country-code';
 import { CountryISO } from './enums/country-iso.enum';
 import { SearchCountryField } from './enums/search-country-field.enum';
@@ -92,9 +90,6 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	propagateChange = (_: ChangeData) => {};
 
 	constructor(private countryCodeData: CountryCode) {
-		// If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
-		// Add the wrong classes and such
-		setTheme('bs4');
 	}
 
 	ngOnInit() {
