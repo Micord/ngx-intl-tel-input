@@ -6,9 +6,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PhoneNumberFormat } from 'projects/ngx-intl-tel-input/src/public_api';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css'],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent {
 	separateDialCode = false;
